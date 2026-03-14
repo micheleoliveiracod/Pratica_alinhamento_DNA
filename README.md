@@ -103,14 +103,14 @@ Ou, deixando o MAFFT escolher a melhor estratégia automaticamente:
 mafft --auto Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
 
 
-## 8. Visualizar alinhamentos no AliView (Windows)
-Copie os arquivos de alinhamento (por exemplo alinhamento_blast.txt e/ou alinhamento_mafft.fasta) do Linux para o Windows:
+## 8. Visualizar alinhamentos no AliView (Windows) - somente alinhamentos feitos com o MAFFT
+Copie os arquivos de alinhamento (alinhamento_Alzaimer_ApoE3+4_mafft.fasta) do Linux para o Windows:
 
 No Windows, abra o AliView.
 
 Em File → Open alignment, selecione:
 
-alinhamento_Influenza_H5N1_mafft.fasta (recomendado, alinhamento em formato FASTA).
+alinhamento_Alzaimer_ApoE3+4_mafft.fasta
 
 Navegue pelas colunas de alinhamento, verifique identidade, gaps, etc.
 
