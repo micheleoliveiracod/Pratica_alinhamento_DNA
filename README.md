@@ -63,7 +63,7 @@ Busque um vírus (por exemplo Influenza H5N1 ou SARS-CoV-2).
 Baixe em formato FASTA como seq_virus.fasta.
 Copie os arquivos para seu ambiente Linux.
 
-## ​6. Alinhamento par a par com BLAST
+## ​6. Alinhamento com BLAST
 Com o ambiente bioinfo ativo e os arquivos FASTA no diretório atual:
 
 conda activate bioinfo
@@ -77,9 +77,13 @@ blastn -query Alzaimer_ApoE4.fasta -subject Alzaimer_ApoE3.fasta -outfmt 0 -out 
 
 less alinhamento_Alzaimer_ApoE34_blast.fasta
 
-blastn -query Influenza_H5N1.fasta -subject Influenza_H5N1.fasta -outfmt 0 -out alinhamento_Influenza_H5N1_blast.fasta
+blastn -query Influenza_H1N1.fasta -subject Influenza_H5N1.fasta -outfmt 0 -out alinhamento_Influenza_H1N1_H5N1_blast.fasta
 
 less alinhamento_Influenza_H5N1_blast.fasta
+
+blastn -query Influenza_H1N1.fasta -subject Alzaimer_ApoE4.fasta -outfmt 0 -out alinhamento__H1N1_ApoE4_blast.fasta
+
+less alinhamento__H1N1_ApoE4_blast.fasta
 
 ## 7. Alinhamento com MAFFT
 
@@ -95,6 +99,16 @@ mafft Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
 
 Ou, deixando o MAFFT escolher a melhor estratégia automaticamente:
 mafft --auto Alzaimer_ApoE3+4.fasta > alinhamento_Alzaimer_ApoE3+4_mafft.fasta
+
+
+Junte as duas em um único arquivo multi‑FASTA:
+cat Influenza_H1N1.fasta Influenza_H5N1.fasta > sequencia_H1N1+H5N1.fasta
+
+Rode o MAFFT neste arquivo multi‑FASTA:
+mafft sequencia_H1N1+H5N1.fasta > alinhamento_H1N1_H5N1_mafft.fasta
+
+Ou, deixando o MAFFT escolher a melhor estratégia automaticamente:
+mafft --auto sequencia_H1N1+H5N1.fasta > alinhamento_H1N1_H5N1_mafft.fasta
 
 
 ## 8. Visualizar alinhamentos no AliView (Windows) - somente alinhamentos feitos com o MAFFT
@@ -141,4 +155,7 @@ Responde perguntas como:
 Saída: um arquivo de alinhamento (FASTA/PHYLIP, etc.) que você vê em visores como AliView, analisando mutações, gaps e regiões conservadas.
 
 Use MAFFT quando quiser comparar diretamente várias sequências alinhadas posição a posição (por exemplo, diferentes versões do mesmo gene de Alzheimer).
+
+## 📄 Licença
+Todo o conteúdo é compartilhado sob a Licença MIT.
 
