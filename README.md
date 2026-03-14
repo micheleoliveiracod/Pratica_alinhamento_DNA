@@ -35,10 +35,10 @@ conda config --add channels conda-forge
 
 ## 3. Instalar BLAST e MAFFT no ambiente
 Com o ambiente bioinfo ativo:
-instalar BLAST (ferramentas BLAST+ da NCBI)
+instalar BLAST
 conda install -c bioconda blast -y
 
-instalar MAFFT (alinhamento múltiplo de sequências)
+instalar MAFFT
 conda install -c bioconda mafft -y
 
 Verificar versões:
@@ -63,7 +63,7 @@ Busque um vírus (por exemplo Influenza H5N1 ou SARS-CoV-2).
 Baixe em formato FASTA como seq_virus.fasta.
 Copie os arquivos para seu ambiente Linux.
 
-## ​6. Alinhamento par a par com BLAST (Linux)
+## ​6. Alinhamento par a par com BLAST
 Com o ambiente bioinfo ativo e os arquivos FASTA no diretório atual:
 
 conda activate bioinfo
@@ -73,21 +73,15 @@ ls *.fasta
 
 6.1. Alinhamento par a par (Nucleotide e Vírus)
 
-blastn -query Alzaimer_ApoE4.fasta \
-       -subject Alzaimer_ApoE3.fasta \
-       -outfmt 0 \
-       -out alinhamento_Alzaimer_ApoE3+4_blast.fasta
+blastn -query Alzaimer_ApoE4.fasta -subject Alzaimer_ApoE3.fasta -outfmt 0 -out alinhamento_Alzaimer_ApoE3+4_blast.fasta
 
 less alinhamento_Alzaimer_ApoE34_blast.fasta
 
-blastn -query Influenza_H5N1.fasta \
-       -subject Influenza_H5N1.fasta \
-       -outfmt 0 \
-       -out alinhamento_Influenza_H5N1_blast.fasta
+blastn -query Influenza_H5N1.fasta -subject Influenza_H5N1.fasta -outfmt 0 -out alinhamento_Influenza_H5N1_blast.fasta
 
 less alinhamento_Influenza_H5N1_blast.fasta
 
-## 7. Alinhamento com MAFFT (Comparação entre sequências)
+## 7. Alinhamento com MAFFT
 
 conferir
 ls *.fasta
@@ -116,9 +110,9 @@ Navegue pelas colunas de alinhamento, verifique identidade, gaps, etc.
 
 Exemplo de visualização típica: duas sequências nas linhas, posições alinhadas por coluna, com cores por tipo de base/resíduo.
 
-## 9. Sobre os metodos Blast e Mafft
+## 9. Sobre os metodos BLAST e MAFFT
 
-BLAST – quando usar
+BLAST (busca de similaridade entre sequências)
 Ferramenta de busca: você coloca uma sequência (query) e o BLAST procura sequências semelhantes em um banco (NCBI, por exemplo).
 
 Responde perguntas como:
@@ -133,7 +127,7 @@ Saída principal: alinhamentos locais par a par com estatísticas (identidade %,
 
 Use BLAST quando quiser identificar, comparar ou encontrar homólogos em bancos de dados.
 
-MAFFT – quando usar
+MAFFT (alinhamento múltiplo de sequências)
 Ferramenta de alinhamento múltiplo de sequências: você fornece 2, 3, 10, 100+ sequências (do mesmo gene, por exemplo), e ele alinha tudo em colunas.
 
 Responde perguntas como:
@@ -148,7 +142,3 @@ Saída: um arquivo de alinhamento (FASTA/PHYLIP, etc.) que você vê em visores 
 
 Use MAFFT quando quiser comparar diretamente várias sequências alinhadas posição a posição (por exemplo, diferentes versões do mesmo gene de Alzheimer).
 
-
-<div align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=micheleoliveiracod.Pratica_alinhamento_nucleotideos&"  />
-</div>
